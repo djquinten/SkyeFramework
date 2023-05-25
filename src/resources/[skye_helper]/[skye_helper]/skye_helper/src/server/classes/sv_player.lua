@@ -4,9 +4,8 @@ playerClass.players = {}
 
 function playerClass:login(source, citizenId, newCharData)
 	if not source then return loggerClass:console('error', 'player/login', "The source wans't found") end
-
 	if citizenId then
-		local player = playerClass:getPlayerData(citizenid)
+		local player = playerClass:getPlayerData(citizenId)
 
 		playerClass.players[source] = player
 
@@ -41,12 +40,12 @@ function playerClass:login(source, citizenId, newCharData)
 end
 
 function playerClass:validatePlayer(source)
-	local player = playerClass.players[source]
+	local player = playerClass.players[source] or {}
 
 	-- Validate playerdata
 	player.name = GetPlayerName(source)
-	player.steam = player.steam or GetPlayerIdentifierByType(source, 'steam')
-	player.license = player.license or GetPlayerIdentifierByType(source, 'license')
+	player.steam = player.steam or playerClass:getIdentifierByType(source, 'steam')
+	player.license = player.license or playerClass:getIdentifierByType(source, 'license')
 	player.citizenid = player.citizenid or playerClass:createCitID()
 
 	player.userdata = player.userdata or {}
@@ -114,7 +113,7 @@ end
 
 function playerClass:getPlayerData(citizenid)
 	local player = {}
-	databaseClass:Execute("SELECT * FROM server_players WHERE citizenid = ?", true, {citizenid}, function(players)
+	databaseClass:Execute("SELECT * FROM server_players WHERE citizenid = @citizenid", true, {['@citizenid'] = citizenid}, function(players)
 		if players[1] then
 			local data = players[1]
 			
@@ -378,9 +377,9 @@ end
 function playerClass:createCitID()
 	local idCharacters = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"}
 
-	local found = false
+	local found, citizenid = false, ""
 	while not found do
-		local citizenid = ""
+		citizenid = ""
 		for i = 1, 8 do
 			citizenid = citizenid .. idCharacters[math.random(1, #idCharacters)]
 		end

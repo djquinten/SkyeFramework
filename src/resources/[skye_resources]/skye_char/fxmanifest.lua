@@ -5,13 +5,11 @@ ui_page 'nui/main.html'
 
 client_scripts {
     'client/cl_*.lua',
-    'client/**/cl_*.lua',
     'sh_config.lua'
 }
 
 server_scripts {
     'server/sv_*.lua',
-    'server/**/sv_*.lua',
     'sh_config.lua'
 }
 

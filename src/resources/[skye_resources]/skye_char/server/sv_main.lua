@@ -20,21 +20,19 @@ AddEventHandler('skye_helper:server:classesLoaded', function()
             local src = source
             local license = playerClass:getIdentifierByType(src, 'license')
         
-            databaseClass:Execute('SELECT * FROM server_players WHERE license = @license', {['@license'] = license}, function(result)
+            databaseClass:Execute('SELECT * FROM server_players WHERE license = @license', true, {['@license'] = license}, function(result)
                 cb(result)
             end)
         end)
         
         callbackClass:CreateCallback('Skye/Characters/Callback/GetUserSkins', function(source, cb, CitizenId)
             -- local result = databaseClass:Execute('SELECT * FROM characters_skins WHERE citizenid = @citizenid', {['@citizenid'] = CitizenId})
-            local restult = false
+            local result = {}
             Wait(400)
             cb(result)
         end)
     end)
 end)
-
-
 
 -- Base.Commands.Add("logout", "Logout of Character (Admin Only)", {}, false, function(source)
 --     Base.Player.Logout(source)
@@ -47,7 +45,7 @@ end)
 
 RegisterNetEvent('Skye/Characters/Server/LoginSelectedChar', function(CitizenId)
     local src = source
-    if playerClass:Login(src, false, CitizenId) then
+    if playerClass:login(src, CitizenId) then
         -- Base.Commands.Refresh(src)
 
         local Player = playerClass:getPlayerBySource(src)
@@ -57,7 +55,10 @@ RegisterNetEvent('Skye/Characters/Server/LoginSelectedChar', function(CitizenId)
             Citizen.Wait(100)
         end
 
-        TriggerClientEvent('hx-spawn_new:Client:OpenSpawnSelector', src, Player.PlayerData)
+        print(
+            "**".. GetPlayerName(src) .. "** ("..CitizenId.." | "..src..") loaded.."
+        )
+        TriggerClientEvent('hx-spawn_new:Client:OpenSpawnSelector', src, Player.userdata)
         loggerClass:discord("joinleave", "Loaded", "**".. GetPlayerName(src) .. "** ("..CitizenId.." | "..src..") loaded..")
 	end
 end)
@@ -70,7 +71,7 @@ AddEventHandler('Base/Multicharacter/Server/Create/Char', function(data, OnReset
             prevsrc = src
             local newData = {firstname = data.FirstName, lastname = data.LastName, birthdate = data.BirthDate, gender = data.Gender, nationality = 'United states of america'}
 
-            if playerClass:Login(src, true, false, newData) then
+            if playerClass:login(src, false, newData) then
                 -- Base.Commands.Refresh(src)
                 GiveStarterItems(src)
 

@@ -280,7 +280,7 @@ $(document).on('click', '.multichar-add-create', function() {
 
         $.post('https://skye_char/CreateChar', JSON.stringify({FirstName : FirstName, LastName : LastName, BirthDate: Birth, Gender: CurrentGender}));
     } else {
-        console.log('Failed To Create')
+        console.error('Failed To Create')
     }
 })
 

@@ -114,18 +114,20 @@ RegisterNUICallback('LoadChars', function()
     if #InsertCharacters > 0 then
         
         for Index = 1, (#InsertCharacters), 1 do
-            CharInfo = json.decode(InsertCharacters[Index].charinfo)
+            CharInfo = json.decode(InsertCharacters[Index].userdata)
             CitizenId = InsertCharacters[Index].citizenid
 
             local Skins = {}
 
             local SkinPromise = promise:new()
 
+            local InsertSkins = {}
+
             TriggerEvent('Skye/MultiChar/Client/GetPlayerSkinData', function(InsertSkins) 
                 SkinPromise:resolve(InsertSkins)
             end, CitizenId)
 
-            local InsertSkins = Citizen.Await(SkinPromise)
+            InsertSkins = Citizen.Await(SkinPromise)
 
             local SkinModel = nil
 
@@ -191,14 +193,13 @@ end)
 
 RegisterNUICallback('LoginSelectedChar', function(data)
     local CitizenId = data.CitizenId
-
     TriggerEvent('skye_char:public:start:multicharacter', 'false')
 
     TriggerServerEvent('Skye/Characters/Server/LoginSelectedChar', CitizenId)
 
     for Key, Value in pairs(SpawnedPeds) do
-        SetEntityAsMissionEntity(Value[1], true, true)
-        DeleteEntity(Value[1])
+        SetEntityAsMissionEntity(Value, true, true)
+        DeleteEntity(Value)
     end
 
     SpawnedPeds = {}

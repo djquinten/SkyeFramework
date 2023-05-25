@@ -46,9 +46,6 @@ local function playerConnecting(name, setKickReason, deferrals)
             'orange',
             "Steam: **".. GetPlayerName(src) .. "** | **"..steamId .. "** \n\nlicense: **"..licenseId.. "** \ndiscord: <@" .. discordId .. "> | **" ..discordId.. "\n\n**ip:** "..ip .. "**"
         )
-        print(
-            "Steam: **".. GetPlayerName(src) .. "** | **"..steamId .. "** \n\nlicense: **"..licenseId.. "** \ndiscord: <@" .. discordId .. "> | **" ..discordId.. "\n\n**ip:** "..ip .. "**"
-        )
 
         Wait(5)
         updateMessage("Welcome to the SkyeFramework, " .. name .. "!\n\nPlease wait while we are checking your information...", deferrals)
