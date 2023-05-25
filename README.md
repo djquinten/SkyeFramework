@@ -1,3 +1,7 @@
+<p align="center">
+  <img width="1669" src="https://media.discordapp.net/attachments/801842532891885588/1111367708924203150/SkyeFramework.png?width=1439&height=434">
+</p>
+
 # SkyeFramework
 SkyeFramework is a fivem framework based on QBCore, MetaFramework & nopixel.
 
