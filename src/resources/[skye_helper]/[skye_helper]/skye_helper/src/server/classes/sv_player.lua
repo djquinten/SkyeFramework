@@ -140,7 +140,13 @@ function playerClass:getPlayerBySource(source)
 end
 
 function playerClass:getIdentifierByType(source, type)
-	return string.gsub(GetPlayerIdentifierByType(src, type), type .. ":", "")
+    local identifiers = GetPlayerIdentifiers(source)
+    for _, identifier in pairs(identifiers) do
+        if string.find(identifier, type) then
+            return identifier
+        end
+    end
+    return nil
 end
 
 -- All player functions
