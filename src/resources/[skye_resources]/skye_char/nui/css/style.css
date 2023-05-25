@@ -258,9 +258,10 @@ body {
 
 .multichar-loading-bar-logo {
     position: absolute;
-    left: 45%;
+    left: 50%;
     top: 10%;
     transition: all, 3.5s;
+    transform: translateX(-50%);
 
     height: 90%;
 }
