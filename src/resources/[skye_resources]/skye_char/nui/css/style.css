@@ -261,6 +261,8 @@ body {
     left: 45%;
     top: 10%;
     transition: all, 3.5s;
+
+    height: 90%;
 }
 
 
