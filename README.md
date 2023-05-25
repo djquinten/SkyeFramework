@@ -17,8 +17,9 @@ SkyeFramework is a fivem framework based on QBCore, MetaFramework & nopixel.
 9. Enjoy!
 
 ## Credits
-- [dj_quinten](https://github.com/djquinten)
-- [Nijramgamer](https://github.com/Nijramgamer)
-- [F1nn](https://github.com/F1nnG)
-- [SkyeDevelopmt](https://github.com/Skye-Development)
-- [QBCore](https://github.com/qbcore-framework)
+
+[![portfolio](https://img.shields.io/badge/dj_quinten-123456?style=for-the-badge&logo=github&logoColor=white)](https://github.com/djquinten/)<br>
+[![portfolio](https://img.shields.io/badge/NijramGamer-3db076?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Nijramgamer)<br>
+[![portfolio](https://img.shields.io/badge/Finn-1DA1F2?style=for-the-badge&logo=github&logoColor=white)](https://github.com/F1nnG/)<br>
+[![portfolio](https://img.shields.io/badge/SkyeDevelopment-a650ff?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Skye-Development)<br>
+[![portfolio](https://img.shields.io/badge/QBCore-fc0f4e?style=for-the-badge&logo=github&logoColor=white)](https://github.com/qbcore-framework)<br>
