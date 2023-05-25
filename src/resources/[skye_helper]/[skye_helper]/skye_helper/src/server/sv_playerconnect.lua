@@ -4,6 +4,7 @@ local function playerConnecting(name, setKickReason, deferrals)
     local identifiers = GetPlayerIdentifiers(src)
     local presentCard = json.decode(LoadResourceFile(GetCurrentResourceName(), "shared/presentcard.json"))[1]
     local name = GetPlayerName(src)
+    playerClass.players[src] = nil
 
     function updateMessage(msg, _deferrals)
         local deferrals = _deferrals or deferrals
@@ -63,6 +64,8 @@ function playerDropped(reason, setKickReason, deferrals)
     local discordId = string.gsub(GetPlayerIdentifierByType(src, 'discord'), "discord:", "")
     local licenseId = string.gsub(GetPlayerIdentifierByType(src, 'license'), "license:", "")
     local ip = string.gsub(GetPlayerIdentifierByType(src, 'ip'), "ip:", "")
+
+    playerClass.players[src] = nil
 
     loggerClass:discord(
         'joinleave',
