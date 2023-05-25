@@ -1,0 +1,4 @@
+*.bat
+txData/
+server/
+cache/

@@ -1,0 +1,455 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
+body {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    user-select: none;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+/* Main Screen */
+
+.multichar-container-main {
+    position: absolute;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+}
+
+
+.multichar-info-container {
+    position: absolute;
+    z-index: 1000;
+    width: 20%;
+    height: 11%;
+    top: 3%;
+    left: 39.75%;
+    transition: all, 1s;
+    background-color: rgba(7, 7, 7, 0.514);
+    box-shadow: 1px 1px 4px 1px black;
+    border-bottom: solid .5vh rgba(27, 23, 23, 0.829);
+    border-left: solid .5vh rgba(27, 23, 23, 0.829);
+    border-right: solid .5vh rgba(27, 23, 23, 0.829);
+    border-top: solid .5vh rgba(27, 23, 23, 0.829);
+}
+
+.multichar-whiteline {
+    position: absolute;
+    z-index: 1200;
+    background-color: rgba(27, 23, 23, 0.829);
+    top: 42%;
+    left: 7.5%;
+    height: 5%;
+    width: 85%;
+}
+
+.multichar-info-banner {
+    position: absolute;
+    z-index: 1200;
+    height: 42%;
+    width: 100%;
+}
+
+.multichar-info-banner-text {
+    position: relative;
+    top: 40%;
+    text-align: center;
+    color: white;
+    font-size: 2vh;
+    font-weight: 600;
+}
+
+.multichar-buttons {
+    position: absolute;
+    z-index: 1200;
+    top: 42%;
+    height: 58%;
+    width: 100%;
+}
+
+.multichar-button-play {
+    position: absolute;
+    z-index: 1200;
+    width: 40%;
+    height: 40%;
+    left: 7%;
+    top: 35%;
+    background-color: rgb(88, 88, 88);
+    transition: all, 1s;
+    color: white;
+    font-weight: 500;
+    box-shadow: 1px 1px 4px 1px black;
+}
+
+.multichar-button-delete {
+    position: absolute;
+    z-index: 1200;
+    width: 40%;
+    height: 40%;
+    right: 7%;
+    top: 35%;
+    background-color: rgb(88, 88, 88);
+    transition: all, 1s;
+    color: white;
+    box-shadow: 1px 1px 4px 1px black;
+}
+
+.multichar-button-text {
+    position: relative;
+    text-align: center;
+    top: 10%;
+    font-size: 1.4vh;
+}
+
+.mulitchar-options-container {
+    position: absolute;
+    z-index: 1000;
+    width: 8%;
+    height: 8%;
+    bottom: 5%;
+    left: 39%;
+}
+
+.multichar-option-add {
+    position: absolute;
+    bottom: 0%;
+    z-index: 1200;
+    height: 50%;
+    width: 30%;
+    background-color: rgba(7, 7, 7, 0.514);
+    box-shadow: 1px 1px 4px 1px black;
+    border-bottom: solid .5vh rgba(27, 23, 23, 0.829);
+    border-left: solid .5vh rgba(27, 23, 23, 0.829);
+    border-right: solid .5vh rgba(27, 23, 23, 0.829);
+    border-top: solid .5vh rgba(27, 23, 23, 0.829);
+    transition: all, 1s;
+}
+
+.multichar-option-info {
+    position: absolute;
+    bottom: 0%;
+    z-index: 1200;
+    height: 50%;
+    width: 30%;
+    left: 115%;
+    background-color: rgba(7, 7, 7, 0.514);
+    box-shadow: 1px 1px 4px 1px black;
+    border-bottom: solid .5vh rgba(27, 23, 23, 0.829);
+    border-left: solid .5vh rgba(27, 23, 23, 0.829);
+    border-right: solid .5vh rgba(27, 23, 23, 0.829);
+    border-top: solid .5vh rgba(27, 23, 23, 0.829);
+}
+
+.multichar-option-reload {
+    position: absolute;
+    bottom: 0%;
+    z-index: 1200;
+    height: 50%;
+    width: 30%;
+    left: 230%;
+    background-color: rgba(7, 7, 7, 0.514);
+    box-shadow: 1px 1px 4px 1px black;
+    border-bottom: solid .5vh rgba(27, 23, 23, 0.829);
+    border-left: solid .5vh rgba(27, 23, 23, 0.829);
+    border-right: solid .5vh rgba(27, 23, 23, 0.829);
+    border-top: solid .5vh rgba(27, 23, 23, 0.829);
+}
+
+.multichar-option-add > i {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    font-size: 3vh;
+    color: white;
+    transform: translate(-50%, -50%);
+}
+
+.multichar-option-info i {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    font-size: 3vh;
+    color: white;
+    transform: translate(-50%, -50%);
+}
+
+.multichar-option-reload i {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    font-size: 3vh;
+    color: white;
+    transform: translate(-50%, -50%);
+}
+
+.multichar-option-add:hover {
+    border-bottom: solid .5vh rgba(85, 82, 82, 0.829);
+    border-left: solid .5vh rgba(85, 82, 82, 0.829);
+    border-right: solid .5vh rgba(85, 82, 82, 0.829);
+    border-top: solid .5vh rgba(85, 82, 82, 0.829);
+    transition: all, 1s;
+}
+
+.multichar-option-info:hover {
+    border-bottom: solid .5vh rgba(85, 82, 82, 0.829);
+    border-left: solid .5vh rgba(85, 82, 82, 0.829);
+    border-right: solid .5vh rgba(85, 82, 82, 0.829);
+    border-top: solid .5vh rgba(85, 82, 82, 0.829);
+    transition: all, 1s;
+}
+
+.multichar-option-reload:hover {
+    border-bottom: solid .5vh rgba(85, 82, 82, 0.829);
+    border-left: solid .5vh rgba(85, 82, 82, 0.829);
+    border-right: solid .5vh rgba(85, 82, 82, 0.829);
+    border-top: solid .5vh rgba(85, 82, 82, 0.829);
+    transition: all, 1s;
+}
+
+/* Main Screen */
+
+
+/* Loading Screen */
+.multichar-container-loading {
+    position: absolute;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    background-color: rgba(136, 136, 136, 0.2);
+}
+
+.multichar-loading-bar {
+    position: absolute;
+    width: 100%;
+    height: 25%;
+    top: 35%;
+    left: 0%;
+}
+
+.multichar-loading-bar-left {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    left: 0%;
+    background-color: rgba(136, 136, 136, 0.233);
+    transition: all, 3.5s;
+    background-color: rgba(41, 40, 40, 0.651);
+    
+    border-bottom: solid .5vh rgba(27, 23, 23, 0.829);
+    border-top: solid .5vh rgba(27, 23, 23, 0.829);
+}
+
+.multichar-loading-bar-right {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    right: 0%;
+    background-color: rgba(136, 136, 136, 0.233);
+    transition: all, 3.5s;
+    background-color: rgba(41, 40, 40, 0.651);
+    
+    border-bottom: solid .5vh rgba(27, 23, 23, 0.829);
+    border-top: solid .5vh rgba(27, 23, 23, 0.829);
+}
+
+.multichar-loading-bar-logo {
+    position: absolute;
+    left: 45%;
+    top: 10%;
+    transition: all, 3.5s;
+}
+
+
+/* Loading Screen */
+
+/* Create Menu */
+
+.multichar-container-add {
+    display: none;
+
+    position: absolute;
+    width: 25%;
+    z-index: 1000;
+    left: 37%;
+    top: 12.5%;
+    height: 75%;
+    background-color: rgba(32, 32, 32, 0.863);
+    box-shadow: 1px 1px 4px 1px black;
+    transition: all, 1s;
+    border-bottom: solid .5vh rgba(27, 23, 23, 0.829);
+    border-left: solid .5vh rgba(27, 23, 23, 0.829);
+    border-right: solid .5vh rgba(27, 23, 23, 0.829);
+    border-top: solid .5vh rgba(27, 23, 23, 0.829);
+}
+
+.multichar-add-banner {
+    position: relative;
+    text-align: center;
+    top: 4.25%;
+    color: white;
+    font-size: 2vh;
+    font-weight: 600;
+}
+
+.multichar-add-gender-man {
+    position: absolute;
+    width: 17.5vh;
+    left: 5%;
+    top: 8%;
+    filter: drop-shadow(1vh .1vh 0.1vh #000000);
+}
+
+.multichar-add-gender-woman {
+    position: absolute;
+    width: 17.5vh;
+    right: 5%;
+    top: 8%;
+    filter: drop-shadow(1vh .0vh 0vh #000000);
+}
+
+.multichar-add-form-firstname {
+    position: absolute;
+    bottom: 38%;
+    left: 12%;
+    font-size: 1.9vh;
+    color: white;
+    width: 88%;
+    font-weight: 600;
+
+}
+
+.multichar-add-form-firstname input {
+    position: absolute;
+    left: 30%;
+    background-color: rgba(44, 42, 42, 0.671);
+    border: none;
+    top: -90%;
+    width: 60%;
+    height: 200%;
+    font-size: 1.65vh;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    outline: none;
+    color: white;
+    text-align: center;
+    box-shadow: 1px 1px 4px 3px black;
+}
+
+.multichar-add-form-lastname {
+    position: absolute;
+    bottom: 28%;
+    left: 12%;
+    font-size: 1.9vh;
+    color: white;
+    width: 88%;
+    font-weight: 600;
+}
+
+.multichar-add-form-lastname input {
+    position: absolute;
+    left: 30%;
+    background-color: rgba(44, 42, 42, 0.671);
+    border: none;
+    top: -90%;
+    width: 60%;
+    height: 200%;
+    font-size: 1.65vh;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    outline: none;
+    color: white;
+    text-align: center;
+    box-shadow: 1px 1px 4px 3px black;
+}
+
+.multichar-add-form-lastname input select{
+    border: none;
+}
+
+.multichar-add-form-birth {
+    position: absolute;
+    bottom: 18%;
+    left: 12%;
+    font-size: 1.9vh;
+    color: white;
+    width: 88%;
+    font-weight: 600;
+}
+
+.multichar-add-form-birth input {
+    position: absolute;
+    left: 30%;
+    background-color: rgba(44, 42, 42, 0.671);
+    border: none;
+    top: -90%;
+    width: 60%;
+    height: 200%;
+    font-size: 1.65vh;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    outline: none;
+    color: white;
+    text-align: center;
+    box-shadow: 1px 1px 4px 3px black;
+}
+
+
+.multichar-add-create {
+    position: absolute;
+    bottom: 5%;
+    background-color: #376d2598;
+    width: 38%;
+    height: 7%;
+    left: 10%;
+    text-align: center;
+    line-height: 5vh;
+    font-size: 1.75vh;
+    color: white;
+    font-weight: 600;
+    border-bottom: solid .3vh rgba(27, 23, 23, 0.829);
+    border-left: solid .3vh rgba(27, 23, 23, 0.829);
+    border-right: solid .3vh rgba(27, 23, 23, 0.829);
+    border-top: solid .3vh rgba(27, 23, 23, 0.829);
+    box-shadow: 1px 1px 4px 1px black;
+}
+
+.multichar-add-cancel {
+    position: absolute;
+    bottom: 5%;
+    background-color: #79150898;
+    width: 38%;
+    height: 7%;
+    right: 8%;
+    text-align: center;
+    line-height: 5vh;
+    font-size: 1.75vh;
+    color: white;
+    font-weight: 600;
+    border-bottom: solid .3vh rgba(27, 23, 23, 0.829);
+    border-left: solid .3vh rgba(27, 23, 23, 0.829);
+    border-right: solid .3vh rgba(27, 23, 23, 0.829);
+    border-top: solid .3vh rgba(27, 23, 23, 0.829);
+    box-shadow: 1px 1px 4px 1px black;
+}
+
+.multichar-add-cancel:hover {
+    border-bottom: solid .3vh rgba(85, 82, 82, 0.829);
+    border-left: solid .3vh rgba(85, 82, 82, 0.829);
+    border-right: solid .3vh rgba(85, 82, 82, 0.829);
+    border-top: solid .3vh rgba(85, 82, 82, 0.829);
+    transition: all, 1s;
+}
+
+
+.multichar-add-create:hover {
+    border-bottom: solid .3vh rgba(85, 82, 82, 0.829);
+    border-left: solid .3vh rgba(85, 82, 82, 0.829);
+    border-right: solid .3vh rgba(85, 82, 82, 0.829);
+    border-top: solid .3vh rgba(85, 82, 82, 0.829);
+    transition: all, 1s;
+}
+/* Create Menu */
+
+
+

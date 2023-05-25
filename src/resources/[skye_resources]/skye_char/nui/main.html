@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+        <link rel="stylesheet" href="./css/style.css">
+    </head>
+    <body>
+        <div class="multichar-container-main">
+            <div class="multichar-info-container">
+                <div class="multichar-info-banner">
+                    <div class="multichar-info-banner-text">Kies een karakter</div>
+                </div>
+                <div class="multichar-whiteline"></div>
+                <div class="multichar-buttons">
+                    <div class="multichar-button-delete"><div class="multichar-button-text">Verwijder</div></div>
+                    <div class="multichar-button-play"><div class="multichar-button-text">Speel</div></div>
+                </div>
+            </div>
+
+
+            <div class="mulitchar-options-container">
+                <div class="multichar-option-add"><i class="fa-solid fa-plus"></i></div>
+                <div class="multichar-option-info"><i class="fa-regular fa-circle-question"></i></div>
+                <div class="multichar-option-reload"><i class="fa-solid fa-arrow-rotate-right"></i></div>
+            </div>
+        </div>
+
+        <div class="multichar-container-add">
+            <div class="multichar-add-banner">Kies Geslacht:</div>
+            <img class="multichar-add-gender-man" src="./img/male.png">
+            <img class="multichar-add-gender-woman" src="./img/female.png">
+            <div class="multichar-add-form-firstname">Voornaam <input type="text" name="firstname"></div>
+            <div class="multichar-add-form-lastname">Achternaam <input type="text" name="lastname"></div>
+            <div class="multichar-add-form-birth">Verjaardag <input name="dob" class="multichar-add-form-birth-form" type="date" value="2000-01-01" max="2090/01/01" /></div>
+            <div class="multichar-add-create">Maak</div>
+            <div class="multichar-add-cancel">Annuleer</div>
+        </div>
+
+        <div class="multichar-container-loading">
+            <div class="multichar-loading-bar">
+                <div class="multichar-loading-bar-left"></div>
+                <div class="multichar-loading-bar-right"></div>
+                <img class="multichar-loading-bar-logo" src="./img/logo.png">
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript" src="./js/scripts.js"></script>
+</html>
