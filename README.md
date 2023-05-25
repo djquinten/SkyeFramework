@@ -6,7 +6,7 @@
 SkyeFramework is a fivem framework based on QBCore, MetaFramework & nopixel.
 
 ## Installation
-1. Download the latest release of SkyeFramework from [here](https://github.com/djquinten/skyeroleplay-v2)
+1. Download the latest release of SkyeFramework from [here](https://github.com/djquinten/SkyeFramework)
 2. Extract the contents repository into the root of your server
 3. Download the latest recommended release from [here](https://runtime.fivem.net/artifacts/fivem/build_server_windows/master/)
 4. Create a new folder in the root of your server called `server`
