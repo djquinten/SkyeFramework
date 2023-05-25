@@ -15,24 +15,26 @@ AddEventHandler('skye_helper:server:classesLoaded', function()
         callbackClass = exports['skye_helper']:classesLoad('callback')
         databaseClass = exports['skye_helper']:classesLoad('database')
         loggerClass = exports['skye_helper']:classesLoad('logger')
+
+        callbackClass:CreateCallback('Skye/Characters/Callback/GetUserCharacters', function(source, cb)
+            local src = source
+            local license = playerClass:getIdentifierByType(src, 'license')
+        
+            databaseClass:Execute('SELECT * FROM server_players WHERE license = @license', {['@license'] = license}, function(result)
+                cb(result)
+            end)
+        end)
+        
+        callbackClass:CreateCallback('Skye/Characters/Callback/GetUserSkins', function(source, cb, CitizenId)
+            -- local result = databaseClass:Execute('SELECT * FROM characters_skins WHERE citizenid = @citizenid', {['@citizenid'] = CitizenId})
+            local restult = false
+            Wait(400)
+            cb(result)
+        end)
     end)
 end)
 
-callbackClass.CreateCallback('Skye/Characters/Callback/GetUserCharacters', function(source, cb)
-    local src = source
-    local license = playerClass:getIdentifierByType(src, 'license')
 
-    databaseClass:Execute('SELECT * FROM characters_metadata WHERE license = @license', {['@license'] = license}, function(result)
-        cb(result)
-    end)
-end)
-
-callbackClass.CreateCallback('Skye/Characters/Callback/GetUserSkins', function(source, cb, CitizenId)
-    -- local result = databaseClass:Execute('SELECT * FROM characters_skins WHERE citizenid = @citizenid', {['@citizenid'] = CitizenId})
-    local restult = false
-    Wait(400)
-    cb(result)
-end)
 
 -- Base.Commands.Add("logout", "Logout of Character (Admin Only)", {}, false, function(source)
 --     Base.Player.Logout(source)

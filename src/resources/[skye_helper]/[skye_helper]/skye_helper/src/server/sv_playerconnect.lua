@@ -36,16 +36,16 @@ local function playerConnecting(name, setKickReason, deferrals)
             deferrals.done('You have a word (drop/table/database) in your name which is not allowed.\nPlease change your steam name.')
 	    end
 
-        local steamId = string.gsub(GetPlayerIdentifierByType(src, 'steam'), "steam:", "") 
-        local discordId = string.gsub(GetPlayerIdentifierByType(src, 'discord'), "discord:", "")
-        local licenseId = string.gsub(GetPlayerIdentifierByType(src, 'license'), "license:", "")
-        local ip = string.gsub(GetPlayerIdentifierByType(src, 'ip'), "ip:", "")
-        loggerClass:discord(
-            'joinleave', 
-            'Player connecting', 
-            'orange',
-            "Steam: **".. GetPlayerName(src) .. "** | **"..steamId .. "** \n\nlicense: **"..licenseId.. "** \ndiscord: <@" .. discordId .. "> | **" ..discordId.. "\n\n**ip:** "..ip .. "**"
-        )
+        -- local steamId = string.gsub(GetPlayerIdentifierByType(src, 'steam'), "steam:", "") 
+        -- local discordId = string.gsub(GetPlayerIdentifierByType(src, 'discord'), "discord:", "")
+        -- local licenseId = string.gsub(GetPlayerIdentifierByType(src, 'license'), "license:", "")
+        -- local ip = string.gsub(GetPlayerIdentifierByType(src, 'ip'), "ip:", "")
+        -- loggerClass:discord(
+        --     'joinleave', 
+        --     'Player connecting', 
+        --     'orange',
+        --     "Steam: **".. GetPlayerName(src) .. "** | **"..steamId .. "** \n\nlicense: **"..licenseId.. "** \ndiscord: <@" .. discordId .. "> | **" ..discordId.. "\n\n**ip:** "..ip .. "**"
+        -- )
 
         Wait(5)
         updateMessage("Welcome to the SkyeFramework, " .. name .. "!\n\nPlease wait while we are checking your information...", deferrals)
