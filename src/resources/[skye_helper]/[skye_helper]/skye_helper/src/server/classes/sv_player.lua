@@ -21,7 +21,6 @@ function playerClass:login(source, citizenId, newCharData)
 
 		playerClass:updatePlayer(source)
 	else
-		local player = {}
 		player.userdata = {}
 		player.userdata.firstname = newCharData.firstname
 		player.userdata.lastname = newCharData.lastname
@@ -40,7 +39,6 @@ function playerClass:login(source, citizenId, newCharData)
 	end
 
 	playerClass:createPlayerFunctions(source)
-
 	return true
 end
 
@@ -78,7 +76,7 @@ function playerClass:validatePlayer(source)
 
 	-- Save playerdata in variable
 	playerClass.players[source] = player
-
+	TriggerClientEvent('skye_helper:public:updatePlayerData', source, playerClass.players[source])
 	return true
 end
 
@@ -88,6 +86,7 @@ end
 
 function playerClass:savePlayer(source)
 	local player = playerClass.players[source]
+	TriggerClientEvent('skye_helper:public:updatePlayerData', source, playerClass.players[source])
 	databaseClass:Insert("INSERT INTO server_players (name, steam, license, citizenid, userdata, money, status, jobs, metadata) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", true, {
 		player.name,
 		player.steam,
@@ -103,6 +102,7 @@ end
 
 function playerClass:updatePlayer(source)
 	local player = playerClass.players[source]
+	TriggerClientEvent('skye_helper:public:updatePlayerData', source, playerClass.players[source])
 	databaseClass:Insert("UPDATE server_players SET name = ?, steam = ?, license = ?, citizenid = ?, userdata = ?, money = ?, status = ?, jobs = ?, metadata = ?", true, {
 		player.name,
 		player.steam,
@@ -374,6 +374,7 @@ function playerClass:createPlayerFunctions(source)
 		return false
 	end
 
+	TriggerClientEvent('skye_helper:public:updatePlayerData', source, self)
 	playerClass.players[source] = self
 end
 
