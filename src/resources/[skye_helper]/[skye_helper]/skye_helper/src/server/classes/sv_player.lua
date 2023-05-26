@@ -4,8 +4,13 @@ playerClass.players = {}
 
 function playerClass:login(source, citizenId, newCharData)
 	if not source then return loggerClass:console('error', 'player/login', "The source wans't found") end
+	local player = {}
 	if citizenId then
-		local player = playerClass:getPlayerData(citizenId)
+		player = getPlayerData(citizenId)
+
+		while player == nil do
+			Citizen.Wait(0)
+		end
 
 		playerClass.players[source] = player
 
@@ -111,7 +116,7 @@ function playerClass:updatePlayer(source)
 	})
 end
 
-function playerClass:getPlayerData(citizenid)
+function getPlayerData(citizenid)
 	local player = {}
 	databaseClass:Execute("SELECT * FROM server_players WHERE citizenid = @citizenid", true, {['@citizenid'] = citizenid}, function(players)
 		if players[1] then
@@ -126,12 +131,11 @@ function playerClass:getPlayerData(citizenid)
 			player.status = json.decode(data.status)
 			player.jobs = json.decode(data.jobs)
 			player.metadata = json.decode(data.metadata)
-
 			return player
+		else
+			return false
 		end
 	end)
-
-	return false
 end
 
 function playerClass:getPlayerBySource(source)
