@@ -26,9 +26,10 @@ AddEventHandler('skye_helper:server:classesLoaded', function()
         end)
         
         callbackClass:CreateCallback('Skye/Characters/Callback/GetUserSkins', function(source, cb, CitizenId)
-            -- local result = databaseClass:Execute('SELECT * FROM characters_skins WHERE citizenid = @citizenid', {['@citizenid'] = CitizenId})
-            local result = {}
+            print(CitizenId)
+            local result = databaseClass:Execute('SELECT * FROM characters_skins WHERE citizenid = "' .. CitizenId .. '"', false)
             Wait(400)
+            print(json.encode(result))
             cb(result)
         end)
     end)
@@ -50,7 +51,7 @@ RegisterNetEvent('Skye/Characters/Server/LoginSelectedChar', function(CitizenId)
 
         local Player = playerClass:getPlayerBySource(src)
 
-        while Player == nil do
+        while not Player do
             Player = playerClass:getPlayerBySource(src)
             Citizen.Wait(100)
         end

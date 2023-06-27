@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `playerskins` (
   KEY `active` (`active`)
 ) ENGINE=MyISAM AUTO_INCREMENT=542 DEFAULT CHARSET=latin1;
 
-CREATE TABLE IF NOT EXISTS `player_outfits` (
+CREATE TABLE IF NOT EXISTS `characters_outfits` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `citizenid` varchar(50) DEFAULT NULL,
   `outfitname` varchar(50) NOT NULL,
@@ -37,3 +37,11 @@ CREATE TABLE IF NOT EXISTS `player_outfits` (
   KEY `citizenid` (`citizenid`),
   KEY `outfitId` (`outfitId`)
 ) ENGINE=MyISAM AUTO_INCREMENT=542 DEFAULT CHARSET=latin1;
+
+CREATE TABLE IF NOT EXISTS `characters_skins` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `citizenid` varchar(50) NOT NULL DEFAULT '',
+  `model` varchar(50) NOT NULL DEFAULT '0',
+  `skin` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=9331 DEFAULT CHARSET=latin1;

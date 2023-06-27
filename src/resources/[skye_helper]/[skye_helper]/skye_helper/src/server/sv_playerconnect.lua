@@ -26,7 +26,7 @@ local function playerConnecting(name, setKickReason, deferrals)
         end
 
         local steamid = identifiers[1]
-        if ((steamid:sub(1,6) == "steam:") == false) then
+        if ((steamid:sub(1, 6) == "steam:") == false) then
             deferrals.done('You need to have steam open to join this server.')
 	    end
 

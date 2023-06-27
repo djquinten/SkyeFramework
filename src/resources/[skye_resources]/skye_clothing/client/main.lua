@@ -315,7 +315,7 @@ Citizen.CreateThread(function()
                                 if IsControlJustPressed(0, Keys["E"]) then
                                     customCamLocation = Config.ClothingRooms[k].cameraLocation
                                     gender = "male"
-                                    if playerClass:getPlayerData().charinfo.gender == 1 then gender = "female" end
+                                    if playerClass:getPlayerData().userdata.gender == 1 then gender = "female" end
                                     callbackClass:TriggerCallback('skye_clothing:server:getOutfits', function(result)
                                         openMenu({
                                             {menu = "roomOutfits", label = "Presets", selected = true, outfits = Config.Outfits[PlayerData.job.name][gender]},
@@ -1079,7 +1079,7 @@ end
 RegisterNUICallback('setCurrentPed', function(data, cb)
     local playerData = playerClass:getPlayerData()
 
-    if playerData.charinfo.gender == 0 then
+    if playerData.userdata.gender == 0 then
         cb(Config.ManPlayerModels[data.ped])
         ChangeToSkinNoUpdate(Config.ManPlayerModels[data.ped])
     else
@@ -1108,7 +1108,7 @@ AddEventHandler('skye_clothing:client:CreateFirstCharacter', function()
             {menu = "accessoires", label = "Accessoires", selected = false}
         }, true)
 
-        if PlayerData.charinfo.gender == 1 then 
+        if PlayerData.userdata.gender == 1 then 
             skin = "mp_f_freemode_01" 
         end
         SetEntityHealth(PlayerPedId(), 200.0)
